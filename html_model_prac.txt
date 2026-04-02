@@ -1,0 +1,157 @@
+🔥 1. LOGIN PAGE
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Login</h2>
+
+<form>
+
+Username:
+<input type="text"><br><br>
+
+Password:
+<input type="password"><br><br>
+
+<input type="submit" value="Login">
+
+</form>
+
+</body>
+</html>
+🔥 2. MODULE SELECTION (OPTIONS)
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Select Module</h2>
+
+<form>
+
+<select>
+<option>GPA Calculator</option>
+<option>Bill Calculator</option>
+<option>ATM Module</option>
+</select>
+
+<br><br>
+
+<input type="submit" value="Open">
+
+</form>
+
+</body>
+</html>
+🔥 3. GPA CALCULATOR
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>GPA Calculator</h2>
+
+Marks: <input id="m"><br><br>
+Credits: <input id="c"><br><br>
+
+<button onclick="calc()">Calculate</button>
+
+<p id="res"></p>
+
+<script>
+
+function calc() {
+
+var m = Number(document.getElementById("m").value);
+var c = Number(document.getElementById("c").value);
+
+var gpa = m / 10;
+
+document.getElementById("res").innerHTML = "GPA = " + gpa;
+
+}
+
+</script>
+
+</body>
+</html>
+🔥 4. BILL CALCULATOR
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Bill Calculator</h2>
+
+Cost: <input id="cost"><br><br>
+
+<button onclick="bill()">Calculate</button>
+
+<p id="out"></p>
+
+<script>
+
+function bill() {
+
+var cost = Number(document.getElementById("cost").value);
+
+var tax = cost * 0.1;
+var delivery = 50;
+
+var total = cost + tax + delivery;
+
+document.getElementById("out").innerHTML = "Total = " + total;
+
+}
+
+</script>
+
+</body>
+</html>
+🔥 5. ATM MODULE
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>ATM Withdrawal</h2>
+
+Balance: <input id="bal"><br><br>
+Amount: <input id="amt"><br><br>
+
+<button onclick="withdraw()">Withdraw</button>
+
+<p id="res"></p>
+
+<script>
+
+function withdraw() {
+
+var bal = Number(document.getElementById("bal").value);
+var amt = Number(document.getElementById("amt").value);
+
+if (amt % 100 != 0) {
+
+document.getElementById("res").innerHTML = "Enter multiples of 100";
+
+}
+else if (amt > bal) {
+
+document.getElementById("res").innerHTML = "Insufficient balance";
+
+}
+else {
+
+document.getElementById("res").innerHTML = "Success. Remaining = " + (bal - amt);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
+🧠 FINAL PATTERN (This is what you must remember)
+
+All modules follow same logic:
+
+INPUT → getElementById
+PROCESS → formula / if condition
+OUTPUT → innerHTML
