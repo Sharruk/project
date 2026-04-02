@@ -25,3 +25,37 @@ with mlflow.start_run():
     mlflow.log_metric("accuracy",accuracy)
     mlflow.sklearn.log_model(model,"student_pass_model")
     print("Accuracy:",accuracy)
+
+
+
+----------------------------------------------------------------
+
+import mlflow
+
+# A simple non-ML function (e.g., calculating a restaurant bill)
+def calculate_bill(item_cost, tax_rate):
+    tax_amount = item_cost * tax_rate
+    total = item_cost + tax_amount + 40 # 40 is a fixed delivery charge
+    return total
+
+# 1. Start the MLflow tracker
+mlflow.start_run()
+
+# 2. Set your inputs
+cost = 500
+tax = 0.05
+
+# 3. Log the inputs (Parameters)
+mlflow.log_param("item_cost", cost)
+mlflow.log_param("tax_rate", tax)
+
+# 4. Run your simple logic
+final_bill = calculate_bill(cost, tax)
+
+# 5. Log the output (Metric)
+mlflow.log_metric("total_bill_amount", final_bill)
+
+# 6. Stop the tracker
+mlflow.end_run()
+
+print(f"Run tracked successfully! Total bill is: {final_bill}")
