@@ -1,0 +1,382 @@
+🔥 COMPLETE ATM SYSTEM (SIMPLE, ONE FILE)
+
+You can literally write something like this in exam (or simplified parts of it).
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>ATM System</h2>
+
+<!-- LOGIN SECTION -->
+<div id="login">
+
+<h3>Login</h3>
+
+PIN: <input type="password" id="pin"><br><br>
+
+<button onclick="login()">Login</button>
+
+<p id="loginMsg"></p>
+
+</div>
+
+
+<!-- MENU SECTION -->
+<div id="menu" style="display:none;">
+
+<h3>ATM Menu</h3>
+
+<select id="option">
+<option>Withdraw</option>
+<option>Deposit</option>
+<option>Balance</option>
+</select>
+
+<br><br>
+
+Amount: <input id="amount"><br><br>
+
+<button onclick="process()">Submit</button>
+
+<p id="output"></p>
+
+</div>
+
+
+<script>
+
+// default values
+var correctPIN = 1234;
+var balance = 5000;
+
+// LOGIN FUNCTION
+function login() {
+
+var enteredPIN = document.getElementById("pin").value;
+
+if (enteredPIN == correctPIN) {
+
+document.getElementById("login").style.display = "none";
+document.getElementById("menu").style.display = "block";
+
+}
+else {
+
+document.getElementById("loginMsg").innerHTML = "Wrong PIN";
+
+}
+
+}
+
+
+// ATM OPERATIONS
+function process() {
+
+var option = document.getElementById("option").value;
+var amt = Number(document.getElementById("amount").value);
+
+// WITHDRAW
+if (option == "Withdraw") {
+
+if (amt % 100 != 0) {
+
+document.getElementById("output").innerHTML = "Enter multiples of 100";
+
+}
+else if (amt > balance) {
+
+document.getElementById("output").innerHTML = "Insufficient Balance";
+
+}
+else {
+
+balance = balance - amt;
+document.getElementById("output").innerHTML = "Withdraw Success. Balance = " + balance;
+
+}
+
+}
+
+// DEPOSIT
+else if (option == "Deposit") {
+
+balance = balance + amt;
+document.getElementById("output").innerHTML = "Deposit Success. Balance = " + balance;
+
+}
+
+// BALANCE CHECK
+else if (option == "Balance") {
+
+document.getElementById("output").innerHTML = "Current Balance = " + balance;
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
+🧠 What this shows (important for marks)
+
+This single file demonstrates:
+
+✔ Login validation (PIN check)
+✔ Menu selection
+✔ Withdraw logic (multiple of 100 + balance check)
+✔ Deposit logic
+✔ Balance enquiry
+✔ Input + processing + output
+
+
+
+🔥 COMPLETE ATM SYSTEM (SIMPLE, ONE FILE)
+
+You can literally write something like this in exam (or simplified parts of it).
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>ATM System</h2>
+
+<!-- LOGIN SECTION -->
+<div id="login">
+
+<h3>Login</h3>
+
+PIN: <input type="password" id="pin"><br><br>
+
+<button onclick="login()">Login</button>
+
+<p id="loginMsg"></p>
+
+</div>
+
+
+<!-- MENU SECTION -->
+<div id="menu" style="display:none;">
+
+<h3>ATM Menu</h3>
+
+<select id="option">
+<option>Withdraw</option>
+<option>Deposit</option>
+<option>Balance</option>
+</select>
+
+<br><br>
+
+Amount: <input id="amount"><br><br>
+
+<button onclick="process()">Submit</button>
+
+<p id="output"></p>
+
+</div>
+
+
+<script>
+
+// default values
+var correctPIN = 1234;
+var balance = 5000;
+
+// LOGIN FUNCTION
+function login() {
+
+var enteredPIN = document.getElementById("pin").value;
+
+if (enteredPIN == correctPIN) {
+
+document.getElementById("login").style.display = "none";
+document.getElementById("menu").style.display = "block";
+
+}
+else {
+
+document.getElementById("loginMsg").innerHTML = "Wrong PIN";
+
+}
+
+}
+
+
+// ATM OPERATIONS
+function process() {
+
+var option = document.getElementById("option").value;
+var amt = Number(document.getElementById("amount").value);
+
+// WITHDRAW
+if (option == "Withdraw") {
+
+if (amt % 100 != 0) {
+
+document.getElementById("output").innerHTML = "Enter multiples of 100";
+
+}
+else if (amt > balance) {
+
+document.getElementById("output").innerHTML = "Insufficient Balance";
+
+}
+else {
+
+balance = balance - amt;
+document.getElementById("output").innerHTML = "Withdraw Success. Balance = " + balance;
+
+}
+
+}
+
+// DEPOSIT
+else if (option == "Deposit") {
+
+balance = balance + amt;
+document.getElementById("output").innerHTML = "Deposit Success. Balance = " + balance;
+
+}
+
+// BALANCE CHECK
+else if (option == "Balance") {
+
+document.getElementById("output").innerHTML = "Current Balance = " + balance;
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
+🧠 What this shows (important for marks)
+
+This single file demonstrates:
+
+✔ Login validation (PIN check)
+✔ Menu selection
+✔ Withdraw logic (multiple of 100 + balance check)
+✔ Deposit logic
+✔ Balance enquiry
+✔ Input + processing + output
+
+That’s easily 20-mark level understanding.
+
+
+
+
+You’re stuck at:
+
+var amt = Number(document.getElementById("amount").value);
+
+You’re thinking:
+👉 “what to change here for GPA, bill, etc?”
+
+Let’s break it properly, then I’ll show you how to change it.
+
+🧠 CORE STRUCTURE (DO NOT CHANGE THIS PATTERN)
+var variable = Number(document.getElementById("id_name").value);
+
+This ALWAYS means:
+
+Take input from HTML → convert to number → store in variable
+🔥 PART BY PART
+var amt
+
+👉 your variable name
+👉 YOU can change this
+
+document.getElementById("amount")
+
+👉 this MUST match the HTML input id
+
+.value
+
+👉 get what user typed
+
+Number(...)
+
+👉 convert text → number
+
+⚠️ RULE (VERY IMPORTANT)
+id in HTML = id in JS
+
+If mismatch → code fails.
+
+🔥 NOW — CHANGE FOR GPA
+HTML
+Marks: <input id="marks">
+Credits: <input id="credits">
+<p id="output"></p>
+JS (changed version)
+var m = Number(document.getElementById("marks").value);
+var c = Number(document.getElementById("credits").value);
+
+var gpa = m / 10;
+
+document.getElementById("output").innerHTML = "GPA = " + gpa;
+🧠 What changed?
+Old	New
+amount	marks
+amt	m
+output	same
+formula	changed
+🔥 NOW — CHANGE FOR BILL
+HTML
+Cost: <input id="cost">
+<p id="output"></p>
+JS
+var cost = Number(document.getElementById("cost").value);
+
+var tax = cost * 0.1;
+var delivery = 50;
+
+var total = cost + tax + delivery;
+
+document.getElementById("output").innerHTML = "Total = " + total;
+🧠 What changed?
+Old	New
+amount	cost
+amt	cost
+formula	cost + tax + delivery
+🔥 SUPER SIMPLE RULE (THIS IS YOUR KEY)
+1. Change id name → matches HTML
+2. Change variable name → anything you want
+3. Change formula → based on question
+4. Keep structure SAME
+⚠️ Common Mistake You WILL Make
+
+You will do:
+
+getElementById("amount")
+
+but HTML has:
+
+<input id="cost">
+
+👉 ❌ mismatch → no output
+
+🧠 Think like this (important)
+
+Stop thinking:
+
+“What code should I write?”
+
+Start thinking:
+
+What input do I need?
+What name will I give it?
+What formula should I apply?
+🎯 Final Mental Template
+var x = Number(document.getElementById("input1").value);
+var y = Number(document.getElementById("input2").value);
+
+var result = formula;
+
+document.getElementById("output").innerHTML = result;
+
+That’
