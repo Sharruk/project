@@ -1,0 +1,204 @@
+EncryptedPad
+⚙️ Settings 🔔 Notify
+🔥 ATM SYSTEM — ENHANCED (HIGH-SCORING VERSION)
+🟢 1. Problem Statement (slightly improved)
+
+An Automated Teller Machine (ATM) system is required to provide secure and automated banking services such as cash withdrawal, deposit, balance enquiry, and fund transfer. The system must ensure fast processing, data accuracy, and continuous availability while minimizing manual intervention.
+
+🟢 2. Stakeholders (add clarity)
+Customer – Performs transactions like withdrawal, deposit, enquiry.
+Bank/Admin – Maintains accounts, monitors transactions, ensures security.
+Operator – Maintains ATM machine (cash refill, system control).
+System – Processes transactions and updates database automatically.
+🟢 3. Functional Requirements (keep clean but strong)
+System shall allow user to withdraw cash in multiples of 100.
+System shall allow user to deposit cash.
+System shall allow user to check account balance.
+System shall allow user to transfer funds between accounts.
+System shall print transaction receipts.
+System shall validate PIN before transactions.
+System shall record all transactions in database.
+System shall allow user to perform multiple transactions per session.
+🟢 4. Non-Functional Requirements (refined)
+Security – Validate PIN and block card after 3 failed attempts.
+Performance – Each transaction must complete within 60 seconds.
+Reliability – Ensure accurate and consistent transaction records.
+Usability – Provide simple keypad and display interface.
+Availability – System must operate 24/7.
+Session Control – Timeout after inactivity (2 minutes).
+Concurrency – Serve one customer at a time.
+🟢 5. Constraints (tight + clean)
+Must support ATM hardware (card reader, dispenser, printer).
+Must allow operator control (start/stop system).
+Must enforce transaction limits and banking policies.
+🟢 6. DFD (don’t change structure — just cleaner wording)
+🔹 Level-0
+
+Customer → (0.0 ATM System) → Cash / Receipt
+Bank → (0.0 ATM System)
+
+🔹 Level-1
+
+1.0 Authenticate User
+2.0 Process Transaction
+3.0 Update Account
+
+Data Stores:
+D1 Account DB
+D2 Transaction DB
+
+🔹 Level-2 (1.0)
+
+1.1 Insert Card
+1.2 Enter PIN
+1.3 Validate PIN
+
+🟢 7. Architecture (slightly better wording)
+
+Layered Architecture
+
+Presentation Layer → ATM UI (screen + keypad)
+Application Layer → Transaction logic & validation
+Data Layer → Account & transaction database
+
+Modules:
+
+Authentication Module
+Transaction Module
+Database Module
+Interface Module
+🟢 8. Algorithm (no need to expand too much)
+Start
+Insert card
+Enter PIN
+Validate PIN
+If invalid → retry (3 times) → retain card
+Select transaction
+Process request
+Update database
+Display result
+Print receipt
+Eject card
+Stop
+🟢 9. Test Cases (slightly improved)
+Test Case	Input	Expected Output
+Valid PIN	Correct PIN	Access granted
+Invalid PIN	Wrong PIN	Error message
+3 attempts	Wrong PIN x3	Card retained
+Valid withdrawal	₹1000	Cash dispensed
+Insufficient balance	₹100000	Transaction failed
+🔥 HTML SECTION (THIS IS WHERE YOU WERE WEAK)
+
+You asked for multiple modules → I’ll give you simple but usable
+
+🟢 1. Login Page (PIN)
+<!DOCTYPE html>
+<html>
+<head>
+<title>ATM Login</title>
+</head>
+<body>
+
+<h2>ATM Login</h2>
+
+PIN: <input type="password" id="pin"><br><br>
+<button onclick="login()">Login</button>
+
+<p id="msg"></p>
+
+<script>
+function login(){
+let pin = document.getElementById("pin").value;
+
+if(pin == "1234"){
+window.location.href = "menu.html";
+}else{
+document.getElementById("msg").innerHTML = "Invalid PIN";
+}
+}
+</script>
+
+</body>
+</html>
+🟢 2. Menu Page (VERY IMPORTANT)
+<!DOCTYPE html>
+<html>
+<head>
+<title>ATM Menu</title>
+</head>
+<body>
+
+<h2>Select Transaction</h2>
+
+<button onclick="withdraw()">Withdraw</button><br><br>
+<button onclick="deposit()">Deposit</button><br><br>
+<button onclick="balance()">Balance</button>
+
+<p id="result"></p>
+
+<script>
+function withdraw(){
+document.getElementById("result").innerHTML = "Withdraw Selected";
+}
+
+function deposit(){
+document.getElementById("result").innerHTML = "Deposit Selected";
+}
+
+function balance(){
+document.getElementById("result").innerHTML = "Balance: ₹5000";
+}
+</script>
+
+</body>
+</html>
+🟢 3. Withdrawal Page
+<!DOCTYPE html>
+<html>
+<head>
+<title>Withdraw</title>
+</head>
+<body>
+
+<h2>Withdraw Cash</h2>
+
+Amount: <input type="number" id="amt"><br><br>
+<button onclick="withdraw()">Withdraw</button>
+
+<p id="msg"></p>
+
+<script>
+function withdraw(){
+let amt = document.getElementById("amt").value;
+
+if(amt % 100 == 0){
+document.getElementById("msg").innerHTML = "Collect Cash: ₹" + amt;
+}else{
+document.getElementById("msg").innerHTML = "Enter multiples of 100";
+}
+}
+</script>
+
+</body>
+</html>
+🟢 10. Git Commands (don’t expand too much)
+git init
+git add .
+git commit -m "ATM system"
+git branch feature
+git merge feature
+git push origin main
+🟢 11. CI/CD (keep simple)
+
+Pipeline:
+Code → Build → Test → Deploy
+
+stages:
+  - build
+  - test
+  - deploy
+🟢 12. Learning Outcomes (keep tight)
+Learned requirement analysis and system design
+Understood DFD and modular architecture
+Implemented basic system and version control
+5013 characters
