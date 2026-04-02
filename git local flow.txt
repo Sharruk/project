@@ -1,0 +1,19 @@
+pwd
+ls
+git init
+ls
+ls -a
+git add .
+git status
+git commit -m "Initial commit"
+git config --global user.name "Sharruk"
+git config --global user.email "mr.sharruk@gmail.com"
+git commit -m "msg"
+git branch feature
+git checkout feature
+echo "feature change" >> input.html
+ls
+git add .
+git commit -m "feature update"
+git checkout master
+git merge feature
