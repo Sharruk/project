@@ -59,3 +59,130 @@ mlflow.log_metric("total_bill_amount", final_bill)
 mlflow.end_run()
 
 print(f"Run tracked successfully! Total bill is: {final_bill}")
+
+
+
+🔥 FIRST — WHAT THIS CODE IS (IN SIMPLE TERMS)
+
+This code is doing only 3 things:
+
+Input → Process → Output → Log
+Part	In your code
+Input	cost, tax
+Process	calculate_bill()
+Output	final_bill
+MLflow	logs input + output
+
+👉 That’s it. Nothing more.
+
+🔥 BREAK YOUR CODE (SO YOU CAN CONTROL IT)
+🟢 1. Inputs (Parameters)
+cost = 500
+tax = 0.05
+
+mlflow.log_param("item_cost", cost)
+mlflow.log_param("tax_rate", tax)
+
+👉 These are just inputs to system
+
+🟢 2. Process
+final_bill = calculate_bill(cost, tax)
+
+👉 This is your system logic
+
+🟢 3. Output (Metric)
+mlflow.log_metric("total_bill_amount", final_bill)
+
+👉 This is your result
+
+🔥 NOW THE REAL THING YOU ASKED
+
+👉 “How to change this for ANY question?”
+
+✅ UNIVERSAL RULE (REMEMBER THIS)
+Param = Input  
+Metric = Output  
+Function = Process  
+🔴 CASE 1: ATM SYSTEM
+Change like this:
+def withdraw(balance, amount):
+    if balance >= amount:
+        return balance - amount
+    else:
+        return -1
+
+mlflow.set_experiment("ATM System")
+
+with mlflow.start_run():
+
+    balance = 5000
+    amount = 1000
+
+    mlflow.log_param("balance", balance)
+    mlflow.log_param("withdraw_amount", amount)
+
+    result = withdraw(balance, amount)
+
+    mlflow.log_metric("remaining_balance", result)
+🔴 CASE 2: SALON SYSTEM (YOUR QUESTION)
+def book_service(service):
+    return 1   # 1 = success
+
+mlflow.set_experiment("Salon System")
+
+with mlflow.start_run():
+
+    service = "Haircut"
+    customer_id = 101
+
+    mlflow.log_param("service", service)
+    mlflow.log_param("customer_id", customer_id)
+
+    result = book_service(service)
+
+    mlflow.log_metric("booking_status", result)
+🔴 CASE 3: ANY RANDOM QUESTION
+
+👉 Just do this:
+
+Identify INPUT
+Write dummy FUNCTION
+Log OUTPUT
+
+DONE.
+
+🔥 WHAT YOU WRITE IN EXAM (IMPORTANT)
+
+You don’t dump code blindly.
+
+Write 2 lines:
+
+MLflow is used to track system execution by logging inputs (parameters) and outputs (metrics).
+
+Then code.
+
+🔥 WHAT YOU’RE DOING WRONG
+
+Right now:
+
+You are trying to “understand tool deeply” ❌
+Instead of “mapping to exam pattern” ❌
+🧠 FINAL SHORTCUT (MEMORIZE THIS)
+with mlflow.start_run():
+    mlflow.log_param("input", value)
+
+    result = process()
+
+    mlflow.log_metric("output", result)
+
+👉 Replace:
+
+input → anything
+process → anything
+output → anything
+🔥 FINAL REALITY CHECK
+
+If you can’t modify this code in exam, it means:
+👉 You didn’t understand input vs output
+
+Not MLflow.
