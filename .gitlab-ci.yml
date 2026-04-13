@@ -45,3 +45,48 @@ pages:
       - public
   only:
     - main
+
+
+
+
+pages:
+  stage: deploy
+  script:
+    - mkdir public
+    - cp f.html public/index.html
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
+
+
+
+FINAL CODE
+
+stages:
+  - build
+  - test
+  - deploy
+
+build-job:
+  stage: build
+  script:
+    - echo "Installing dependencies"
+    - echo "Building project"
+
+test-job:
+  stage: test
+  script:
+    - echo "Running tests"
+
+pages:
+  stage: deploy
+  script:
+    - mkdir public
+    - cp login.html public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
