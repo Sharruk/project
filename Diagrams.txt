@@ -1,0 +1,335 @@
+DFD DIAGRAM:
+
+🔥 STEP 1: HOW TO DRAW (EXAM STYLE)
+🟢 LEVEL-0 DFD (Context Diagram)
+
+Draw ONLY 3 things:
+
+[Actor 1]        [Actor 2]
+
+      → ( 0.0 System Name ) →
+
+          ||
+
+      [Database]
+✍️ What to label
+
+Example (Salon System):
+
+Actors:
+Customer
+Staff
+Admin
+
+Process:
+0.0 Salon Management System
+
+Data Store:
+Salon Database
+🟢 WHAT TO WRITE BELOW DIAGRAM
+
+Write this EXACT pattern:
+
+Level-0 DFD Explanation
+The Level-0 DFD represents the entire system as a single process.
+
+External entities such as Customer, Staff, and Admin interact with the system.
+
+The system processes user requests such as login, service booking, and report generation.
+
+All data is stored and retrieved from the Salon Database.
+
+This diagram shows the overall interaction between users and the system.
+🔥 STEP 2: LEVEL-1 DFD (BREAKDOWN)
+
+Now split the system into 4 processes.
+
+🟢 DRAW LIKE THIS
+[Customer]
+    |
+    v
+ (1.0 Login / User Management)
+    |
+    v
+ (2.0 Service Processing)
+    |
+    v
+ (3.0 Booking & Transaction)
+    |
+    v
+ (4.0 Report Generation)
+
+        ||
+   [Database]
+✍️ LABEL THIS PROPERLY
+1.0 User Management
+2.0 Service Management
+3.0 Booking & Transaction
+4.0 Report Generation
+
+D1 – User Database
+D2 – Booking Database
+🟢 WHAT TO WRITE BELOW LEVEL-1
+Level-1 DFD Explanation
+The Level-1 DFD decomposes the main system into multiple processes.
+
+The User Management process handles login and authentication.
+
+The Service Management process allows users to select and view services.
+
+The Booking and Transaction process handles booking confirmation and updates records.
+
+The Report Generation process provides reports to management.
+
+All processes interact with the database to store and retrieve information.
+
+This diagram provides a detailed view of internal system operations.
+🎯 UNIVERSAL TEMPLATE (Use for ANY SYSTEM)
+
+Just replace words:
+
+Actors → Customer / Patient / Student
+System → ATM / Hospital / Salon
+Processes → Login / Process / Transaction / Report
+Database → System Database
+
+
+
+
+
+ARCHITECTURE DIAGRAM
+
+
+🔥 STEP 1: WHAT YOU DRAW (DIAGRAM)
+
+You draw exactly like the image, but DON’T copy “Component”.
+
+Replace it with real module names.
+
+🔴 Your Diagram (what to label)
+🟢 Layer 1: Presentation Layer
+
+Write inside boxes:
+
+Customer UI
+Staff UI
+Admin UI
+🟢 Layer 2: Business Layer
+
+Write:
+
+Authentication Module
+Booking Module
+Service Execution Module
+Report Module
+🟢 Layer 3: Data Access Layer
+
+Write:
+
+Customer DAO
+Booking DAO
+Service DAO
+🟢 Layer 4: Database Layer
+
+Draw cylinders and label:
+
+Customer DB
+Booking DB
+Service DB
+Staff DB
+🔻 Arrows (IMPORTANT)
+
+Draw arrows:
+
+Request ↓
+Presentation ↓
+Business ↓
+Data Access ↓
+Database
+❌ About “Closed” (your doubt)
+
+👉 DO NOT write “Closed”
+That’s advanced concept (layer isolation).
+
+If you write it without explaining → you’ll confuse examiner.
+
+🔥 STEP 2: WHAT YOU WRITE (EXPLANATION)
+
+After diagram, write this structured explanation.
+
+🟢 Heading:
+
+Layered Architecture of Salon Management System
+
+🔹 1. Presentation Layer
+This layer provides user interfaces for customers, staff, and management.
+It allows users to perform operations such as login, booking services, updating service status, and viewing reports.
+🔹 2. Business Layer
+This layer contains core logic of the system.
+
+Authentication Module validates user credentials.
+Booking Module handles appointment booking.
+Service Execution Module updates service status.
+Report Module generates performance reports.
+🔹 3. Data Access Layer
+This layer interacts with the database.
+It performs CRUD operations such as storing bookings, retrieving services, and updating records.
+🔹 4. Database Layer
+This layer stores all system data including customer details, booking records, services, and staff information.
+🔥 STEP 3: ONE LINE FLOW (VERY IMPORTANT)
+
+Write this at end:
+
+The request flows from Presentation Layer to Business Layer, then to Data Access Layer, and finally interacts with the Database Layer. The response is sent back in reverse order.
+
+👉 This line alone can give you extra marks.
+
+⚠️ WHERE YOU WILL LOSE MARKS
+
+If you:
+
+write generic words like “frontend/backend” ❌
+don’t name modules ❌
+don’t explain each layer ❌
+draw diagram without arrows ❌
+🔥 FINAL STRUCTURE (WRITE IN EXAM)
+Draw diagram (with proper labels)
+Write heading
+Explain each layer (4 points)
+Write flow line
+🧠 SIMPLE MEMORY TRICK
+
+👉 Think like:
+
+User → Logic → Data → Storage
+
+That’s all layered architecture is.
+
+
+USE CASE DIAGRAM
+
+
+🔥 WHAT USE CASE DIAGRAM REALLY MEANS (NO CONFUSION)
+
+Forget theory. Think like this:
+
+👉 Use Case = What user does with system
+👉 Actor = Who uses system
+
+That’s it.
+
+🟢 1. ACTOR (Stick Man)
+
+Meaning:
+
+Actor = external user interacting with system
+
+In your question:
+
+Customer
+Staff
+Manager/Admin
+🟢 2. USE CASE (Oval)
+
+Meaning:
+
+Use Case = action performed in system
+
+From your question:
+
+Login
+Search Service
+Book Service
+Confirm Booking
+Update Service Status
+Generate Report
+🟢 3. ASSOCIATION (Line)
+
+Meaning:
+
+Connects actor to use case
+
+Example:
+
+Customer ——> Book Service
+
+👉 Just a straight line. Nothing fancy.
+
+🟢 4. <<include>> (IMPORTANT)
+
+Meaning:
+
+One process ALWAYS uses another process
+
+Example:
+
+Book Service  <<include>>  Check Availability
+
+👉 Booking ALWAYS needs availability check.
+
+🟢 5. <<extend>> (IMPORTANT)
+
+Meaning:
+
+Optional behavior (extra condition)
+
+Example:
+
+Book Service  <<extend>>  Suggest Alternative Slot
+
+👉 Only happens if slot is not available.
+
+🟢 6. GENERALIZATION (OPTIONAL)
+
+Meaning:
+
+One actor is a type of another
+
+Example:
+
+User → Customer / Admin
+
+👉 You can skip this if no time.
+
+🔥 WHAT YOU SHOULD DRAW FOR YOUR QUESTION
+Actors:
+Customer
+Staff
+Manager
+Use Cases:
+Login
+Search Service
+Book Service
+Check Availability
+Confirm Booking
+Update Service Status
+Generate Report
+Relationships:
+Customer → Login, Search Service, Book Service
+Staff → Update Service Status
+Manager → Generate Report
+
+Book Service <<include>> Check Availability
+Book Service <<include>> Confirm Booking
+Book Service <<extend>> Suggest Alternative
+✍️ WHAT TO WRITE BELOW DIAGRAM (THIS IS WHAT GIVES MARKS)
+
+Write this EXACT structure:
+
+Use Case Diagram Explanation
+The Use Case Diagram represents the interaction between different actors and the Salon Management System.
+
+The main actors are Customer, Staff, and Manager.
+
+The Customer can perform operations such as login, search services, and book services.
+
+The Staff updates the service execution status in the system.
+
+The Manager generates reports and monitors system performance.
+
+The booking process includes checking service availability and confirming the booking.
+
+If the requested slot is unavailable, the system suggests an alternative option.
+
+This diagram shows how users interact with the system to perform various operations.
+
