@@ -17,3 +17,59 @@ git add .
 git commit -m "feature update"
 git checkout master
 git merge feature
+
+
+
+🔥 COMPLETE GIT FLOW (EXAM READY)
+🟢 1. Initialize repository
+git init
+
+👉 Creates .git folder
+
+🟢 2. Add files
+git add .
+
+👉 Adds all files to staging
+
+🟢 3. Commit
+git commit -m "Initial commit"
+
+👉 Saves snapshot
+
+⚠️ ERROR (VERY COMMON)
+
+If you get:
+
+please tell me who you are
+
+Fix:
+
+git config --global user.name "Sharruk"
+git config --global user.email "mr.sharruk@gmail.com"
+🟢 4. Create branch
+git branch feature
+🟢 5. Switch branch
+git checkout feature
+🟢 6. Make change (IMPORTANT)
+echo "feature change" >> input.html
+
+👉 Without this → merge useless
+
+🟢 7. Add + Commit (feature branch)
+git add .
+git commit -m "feature update"
+🟢 8. Go back to main branch
+git checkout master
+🟢 9. Merge
+git merge feature
+🎯 FINAL FLOW (SHORT VERSION — WRITE IN EXAM)
+git init
+git add .
+git commit -m "initial"
+git branch feature
+git checkout feature
+# make changes
+git add .
+git commit -m "update"
+git checkout master
+git merge feature
